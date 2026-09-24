@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Something Is Coming 👀</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+
+    <!-- =========================
+         BACKGROUND
+    ========================== -->
+
+    <div class="background">
+
+        <div class="orb orb1"></div>
+        <div class="orb orb2"></div>
+        <div class="orb orb3"></div>
+
+    </div>
+
+
+    <div class="particles"></div>
+
+
+    <!-- =========================
+         MAIN
+    ========================== -->
+
+    <main class="container">
+
+
+        <!-- =========================
+             INTRO
+        ========================== -->
+
+        <section
+            class="intro"
+            id="intro"
+        >
+
+            <div class="eyebrow">
+                ✦ A LITTLE SOMETHING FOR YOU ✦
+            </div>
+
+
+            <h1>
+                SOMETHING<br>
+                <span>IS COMING.</span>
+            </h1>
+
+
+            <p>
+                You weren't supposed to find this yet.
+            </p>
+
+
+            <button
+                class="main-btn"
+                id="startBtn"
+            >
+
+                <span>
+                    I'M CURIOUS
+                </span>
+
+                <b>→</b>
+
+            </button>
+
+        </section>
+
+
+
+        <!-- =========================
+             REGISTRATION
+        ========================== -->
+
+        <section
+            class="registration hidden"
+            id="registration"
+        >
+
+
+            <!-- PROGRESS -->
+
+            <div class="progress">
+
+                <span id="stepNumber">
+                    01
+                </span>
+
+                <div class="progress-track">
+
+                    <div id="progressBar"></div>
+
+                </div>
+
+                <span>
+                    02
+                </span>
+
+            </div>
+
+
+
+            <!-- FORM -->
+
+            <form
+                id="registrationForm"
+                action="YOUR_GOOGLE_APPS_SCRIPT_URL"
+                method="POST"
+                target="hiddenFrame"
+            >
+
+
+                <!-- =========================
+                     QUESTION 1
+                ========================== -->
+
+                <div
+                    class="step active"
+                    id="step1"
+                >
+
+                    <div class="question-label">
+                        QUESTION 01
+                    </div>
+
+
+                    <h2>
+                        👋 First things first...
+                    </h2>
+
+
+                    <p>
+                        What should we call you?
+                    </p>
+
+
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        placeholder="Your name..."
+                        autocomplete="name"
+                    >
+
+
+                    <button
+                        type="button"
+                        class="next-btn"
+                        id="nameNext"
+                    >
+
+                        THAT'S ME →
+
+                    </button>
+
+
+                    <div
+                        class="error-message"
+                        id="nameError"
+                    ></div>
+
+                </div>
+
+
+
+                <!-- =========================
+                     QUESTION 2
+                ========================== -->
+
+                <div
+                    class="step"
+                    id="step2"
+                >
+
+                    <div class="question-label">
+                        FINAL QUESTION
+                    </div>
+
+
+                    <h2>
+                        🍽️ One serious question.
+                    </h2>
+
+
+                    <p>
+                        Which side are you on?
+                    </p>
+
+
+                    <div class="food-options">
+
+
+                        <!-- VEG -->
+
+                        <label class="food-card">
+
+                            <input
+                                type="radio"
+                                name="food"
+                                value="Veg"
+                            >
+
+
+                            <div class="food-content">
+
+                                <span class="food-emoji">
+                                    🥗
+                                </span>
+
+
+                                <strong>
+                                    TEAM VEG
+                                </strong>
+
+
+                                <small>
+                                    Keep it green.
+                                </small>
+
+                            </div>
+
+                        </label>
+
+
+
+                        <!-- NON VEG -->
+
+                        <label class="food-card">
+
+                            <input
+                                type="radio"
+                                name="food"
+                                value="Non-Veg"
+                            >
+
+
+                            <div class="food-content">
+
+                                <span class="food-emoji">
+                                    🍗
+                                </span>
+
+
+                                <strong>
+                                    TEAM NON-VEG
+                                </strong>
+
+
+                                <small>
+                                    Bring on the feast.
+                                </small>
+
+                            </div>
+
+                        </label>
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="next-btn final-btn"
+                        id="submitButton"
+                    >
+
+                        <span>
+                            PUT ME ON THE LIST 🔥
+                        </span>
+
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="back-btn"
+                        id="backBtn"
+                    >
+
+                        ← GO BACK
+
+                    </button>
+
+
+                    <div
+                        class="error-message"
+                        id="foodError"
+                    ></div>
+
+                </div>
+
+            </form>
+
+
+
+            <!-- HIDDEN IFRAME -->
+
+            <iframe
+                name="hiddenFrame"
+                id="hiddenFrame"
+                style="display:none;"
+            ></iframe>
+
+
+
+            <!-- LOADING -->
+
+            <div
+                class="loading"
+                id="loading"
+            >
+
+                <div class="spinner"></div>
+
+                <span>
+                    SECURING YOUR SPOT...
+                </span>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             FINAL SCENE
+        ========================== -->
+
+        <section
+            class="success hidden"
+            id="success"
+        >
+
+
+            <div class="success-badge">
+                ✦ ACCESS GRANTED ✦
+            </div>
+
+
+            <h1>
+                YOU'RE<br>
+                <span>IN.</span>
+            </h1>
+
+
+            <p class="success-text">
+
+                Your name has officially made
+                it onto the list.
+
+                <br><br>
+
+                You know the <strong>where</strong>.
+                You know the <strong>when</strong>.
+
+                <br><br>
+
+                The rest?
+
+                <strong>
+                    You'll find out. 👀
+                </strong>
+
+            </p>
+
+
+
+            <!-- =========================
+                 9:16 IMAGE
+            ========================== -->
+
+            <div class="final-image-wrapper">
+
+                <img
+                    src="last-scene.jpg"
+                    alt="Event"
+                    class="final-image"
+                >
+
+            </div>
+
+
+
+            <!-- =========================
+                 EVENT DETAILS
+            ========================== -->
+
+            <div class="mystery-card">
+
+                <h3>
+                    CLASSIFIED DETAILS
+                </h3>
+
+
+                <div class="details">
+
+                    <span>
+                        📅 30 SEPTEMBER 2026
+                    </span>
+
+
+                    <span>
+                        ⏰ 3:00 PM — 5:00 PM
+                    </span>
+
+
+                    <span>
+                        📍 ROOM NO. 222
+                    </span>
+
+                </div>
+
+
+                <div class="secret">
+                    Don't be late.
+                </div>
+
+            </div>
+
+
+        </section>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
