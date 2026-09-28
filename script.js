@@ -41,23 +41,25 @@ const submitButton =
 const loading =
     document.getElementById("loading");
 
+const nameInput =
+    document.getElementById("name");
+
 const nameError =
     document.getElementById("nameError");
 
 const foodError =
     document.getElementById("foodError");
 
+const hiddenFrame =
+    document.getElementById("hiddenFrame");
 
-let currentStep = 1;
+const particleContainer =
+    document.getElementById("particles");
 
 
 /* =========================
    PARTICLES
 ========================= */
-
-const particleContainer =
-    document.querySelector(".particles");
-
 
 for (let i = 0; i < 50; i++) {
 
@@ -84,27 +86,27 @@ for (let i = 0; i < 50; i++) {
 
 
 /* =========================
-   INTRO → REGISTRATION
+   START
 ========================= */
 
 startBtn.addEventListener(
     "click",
     function () {
 
-        intro.classList.add(
-            "hidden"
-        );
+        intro.classList.add("hidden");
 
         registration.classList.remove(
             "hidden"
         );
+
+        nameInput.focus();
 
     }
 );
 
 
 /* =========================
-   STEP 1 → STEP 2
+   NAME → FOOD
 ========================= */
 
 nameNext.addEventListener(
@@ -112,10 +114,7 @@ nameNext.addEventListener(
     function () {
 
         const name =
-            document
-                .getElementById("name")
-                .value
-                .trim();
+            nameInput.value.trim();
 
 
         nameError.style.display =
@@ -130,9 +129,7 @@ nameNext.addEventListener(
             nameError.style.display =
                 "block";
 
-            document
-                .getElementById("name")
-                .focus();
+            nameInput.focus();
 
             return;
 
@@ -148,9 +145,6 @@ nameNext.addEventListener(
         );
 
 
-        currentStep = 2;
-
-
         stepNumber.textContent =
             "02";
 
@@ -163,7 +157,7 @@ nameNext.addEventListener(
 
 
 /* =========================
-   STEP 2 → STEP 1
+   FOOD → NAME
 ========================= */
 
 backBtn.addEventListener(
@@ -177,9 +171,6 @@ backBtn.addEventListener(
         step1.classList.add(
             "active"
         );
-
-
-        currentStep = 1;
 
 
         stepNumber.textContent =
@@ -198,7 +189,7 @@ backBtn.addEventListener(
 
 
 /* =========================
-   FORM SUBMIT
+   FORM SUBMISSION
 ========================= */
 
 form.addEventListener(
@@ -206,10 +197,7 @@ form.addEventListener(
     function (event) {
 
         const name =
-            document
-                .getElementById("name")
-                .value
-                .trim();
+            nameInput.value.trim();
 
 
         const food =
@@ -218,13 +206,14 @@ form.addEventListener(
             );
 
 
+        nameError.style.display =
+            "none";
+
         foodError.style.display =
             "none";
 
 
-        /*
-         * Validate name.
-         */
+        /* NAME CHECK */
 
         if (!name) {
 
@@ -238,29 +227,33 @@ form.addEventListener(
                 "active"
             );
 
-            currentStep = 1;
-
             stepNumber.textContent =
                 "01";
 
             progressBar.style.width =
                 "50%";
 
+            nameError.textContent =
+                "⚠️ Please enter your name.";
+
+            nameError.style.display =
+                "block";
+
+            nameInput.focus();
+
             return;
 
         }
 
 
-        /*
-         * Validate food.
-         */
+        /* FOOD CHECK */
 
         if (!food) {
 
             event.preventDefault();
 
             foodError.textContent =
-                "⚠️ Choose your food preference.";
+                "⚠️ Choose Veg or Non-Veg.";
 
             foodError.style.display =
                 "block";
@@ -271,7 +264,13 @@ form.addEventListener(
 
 
         /*
-         * Disable submit button.
+         * At this point:
+         *
+         * name = valid
+         * food = valid
+         *
+         * The browser will now submit
+         * the POST request to Google Apps Script.
          */
 
         submitButton.disabled =
@@ -289,12 +288,10 @@ form.addEventListener(
 
 
         /*
-         * Google Apps Script receives
-         * the POST request through the
-         * hidden iframe.
-         *
-         * After a short delay,
-         * show the final scene.
+         * We use a hidden iframe so the
+         * current website does not leave
+         * the page when submitting to
+         * Google Apps Script.
          */
 
         setTimeout(
@@ -308,14 +305,13 @@ form.addEventListener(
                     "hidden"
                 );
 
-
                 window.scrollTo({
                     top: 0,
                     behavior: "smooth"
                 });
 
             },
-            1800
+            2000
         );
 
     }
