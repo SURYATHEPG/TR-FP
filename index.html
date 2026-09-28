@@ -10,18 +10,20 @@
         content="width=device-width, initial-scale=1.0"
     >
 
-    <title>Something Is Coming 👀</title>
+    <title>Something Is Coming</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
 
 </head>
+
 
 <body>
 
 
-    <!-- =========================
-         BACKGROUND
-    ========================== -->
+    <!-- BACKGROUND -->
 
     <div class="background">
 
@@ -32,12 +34,14 @@
     </div>
 
 
-    <div class="particles"></div>
+    <div
+        class="particles"
+        id="particles"
+    ></div>
 
 
-    <!-- =========================
-         MAIN
-    ========================== -->
+
+    <!-- MAIN -->
 
     <main class="container">
 
@@ -70,13 +74,16 @@
             <button
                 class="main-btn"
                 id="startBtn"
+                type="button"
             >
 
                 <span>
                     I'M CURIOUS
                 </span>
 
-                <b>→</b>
+                <b>
+                    →
+                </b>
 
             </button>
 
@@ -102,11 +109,16 @@
                     01
                 </span>
 
+
                 <div class="progress-track">
 
-                    <div id="progressBar"></div>
+                    <div
+                        id="progressBar"
+                        class="progress-bar"
+                    ></div>
 
                 </div>
+
 
                 <span>
                     02
@@ -126,9 +138,7 @@
             >
 
 
-                <!-- =========================
-                     QUESTION 1
-                ========================== -->
+                <!-- QUESTION 1 -->
 
                 <div
                     class="step active"
@@ -164,9 +174,7 @@
                         class="next-btn"
                         id="nameNext"
                     >
-
                         THAT'S ME →
-
                     </button>
 
 
@@ -179,9 +187,7 @@
 
 
 
-                <!-- =========================
-                     QUESTION 2
-                ========================== -->
+                <!-- QUESTION 2 -->
 
                 <div
                     class="step"
@@ -216,18 +222,15 @@
                                 value="Veg"
                             >
 
-
                             <div class="food-content">
 
                                 <span class="food-emoji">
                                     🥗
                                 </span>
 
-
                                 <strong>
                                     TEAM VEG
                                 </strong>
-
 
                                 <small>
                                     Keep it green.
@@ -249,18 +252,15 @@
                                 value="Non-Veg"
                             >
 
-
                             <div class="food-content">
 
                                 <span class="food-emoji">
                                     🍗
                                 </span>
 
-
                                 <strong>
                                     TEAM NON-VEG
                                 </strong>
-
 
                                 <small>
                                     Bring on the feast.
@@ -291,9 +291,7 @@
                         class="back-btn"
                         id="backBtn"
                     >
-
                         ← GO BACK
-
                     </button>
 
 
@@ -313,7 +311,6 @@
             <iframe
                 name="hiddenFrame"
                 id="hiddenFrame"
-                style="display:none;"
             ></iframe>
 
 
@@ -338,14 +335,13 @@
 
 
         <!-- =========================
-             FINAL SCENE
+             SUCCESS
         ========================== -->
 
         <section
             class="success hidden"
             id="success"
         >
-
 
             <div class="success-badge">
                 ✦ ACCESS GRANTED ✦
@@ -380,9 +376,7 @@
 
 
 
-            <!-- =========================
-                 9:16 IMAGE
-            ========================== -->
+            <!-- 9:16 IMAGE -->
 
             <div class="final-image-wrapper">
 
@@ -396,9 +390,7 @@
 
 
 
-            <!-- =========================
-                 EVENT DETAILS
-            ========================== -->
+            <!-- EVENT DETAILS -->
 
             <div class="mystery-card">
 
@@ -432,10 +424,10 @@
 
             </div>
 
-
         </section>
 
     </main>
+
 
 
     <script src="script.js"></script>
