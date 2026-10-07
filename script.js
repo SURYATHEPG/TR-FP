@@ -14,20 +14,8 @@ const success =
 const startBtn =
     document.getElementById("startBtn");
 
-const nameNext =
-    document.getElementById("nameNext");
-
-const backBtn =
-    document.getElementById("backBtn");
-
 const form =
     document.getElementById("registrationForm");
-
-const step1 =
-    document.getElementById("step1");
-
-const step2 =
-    document.getElementById("step2");
 
 const stepNumber =
     document.getElementById("stepNumber");
@@ -46,12 +34,6 @@ const nameInput =
 
 const nameError =
     document.getElementById("nameError");
-
-const foodError =
-    document.getElementById("foodError");
-
-const hiddenFrame =
-    document.getElementById("hiddenFrame");
 
 const particleContainer =
     document.getElementById("particles");
@@ -106,89 +88,6 @@ startBtn.addEventListener(
 
 
 /* =========================
-   NAME → FOOD
-========================= */
-
-nameNext.addEventListener(
-    "click",
-    function () {
-
-        const name =
-            nameInput.value.trim();
-
-
-        nameError.style.display =
-            "none";
-
-
-        if (!name) {
-
-            nameError.textContent =
-                "⚠️ Tell us your name first.";
-
-            nameError.style.display =
-                "block";
-
-            nameInput.focus();
-
-            return;
-
-        }
-
-
-        step1.classList.remove(
-            "active"
-        );
-
-        step2.classList.add(
-            "active"
-        );
-
-
-        stepNumber.textContent =
-            "02";
-
-
-        progressBar.style.width =
-            "100%";
-
-    }
-);
-
-
-/* =========================
-   FOOD → NAME
-========================= */
-
-backBtn.addEventListener(
-    "click",
-    function () {
-
-        step2.classList.remove(
-            "active"
-        );
-
-        step1.classList.add(
-            "active"
-        );
-
-
-        stepNumber.textContent =
-            "01";
-
-
-        progressBar.style.width =
-            "50%";
-
-
-        foodError.style.display =
-            "none";
-
-    }
-);
-
-
-/* =========================
    FORM SUBMISSION
 ========================= */
 
@@ -200,38 +99,19 @@ form.addEventListener(
             nameInput.value.trim();
 
 
-        const food =
-            document.querySelector(
-                'input[name="food"]:checked'
-            );
-
+        /* CLEAR PREVIOUS ERROR */
 
         nameError.style.display =
             "none";
 
-        foodError.style.display =
-            "none";
 
-
-        /* NAME CHECK */
+        /* =========================
+           NAME VALIDATION
+        ========================= */
 
         if (!name) {
 
             event.preventDefault();
-
-            step2.classList.remove(
-                "active"
-            );
-
-            step1.classList.add(
-                "active"
-            );
-
-            stepNumber.textContent =
-                "01";
-
-            progressBar.style.width =
-                "50%";
 
             nameError.textContent =
                 "⚠️ Please enter your name.";
@@ -246,32 +126,19 @@ form.addEventListener(
         }
 
 
-        /* FOOD CHECK */
-
-        if (!food) {
-
-            event.preventDefault();
-
-            foodError.textContent =
-                "⚠️ Choose Veg or Non-Veg.";
-
-            foodError.style.display =
-                "block";
-
-            return;
-
-        }
-
+        /* =========================
+           PREPARE SUBMISSION
+        ========================= */
 
         /*
-         * At this point:
+         * Only the following data
+         * will be sent:
          *
-         * name = valid
-         * food = valid
+         * name = user's name
          *
-         * The browser will now submit
-         * the POST request to Google Apps Script.
+         * No Veg / Non-Veg data.
          */
+
 
         submitButton.disabled =
             true;
@@ -288,11 +155,15 @@ form.addEventListener(
 
 
         /*
-         * We use a hidden iframe so the
-         * current website does not leave
-         * the page when submitting to
-         * Google Apps Script.
+         * The form will now submit
+         * normally to Google Apps Script
+         * using the hidden iframe.
          */
+
+
+        /* =========================
+           SHOW SUCCESS
+        ========================= */
 
         setTimeout(
             function () {
